@@ -1,0 +1,33 @@
+{
+    "name": "Radicale",
+    "id": "radicale",
+    "description": {
+        "en": "CalDAV (calendar) and CardDAV (contact) server solution",
+        "fr": "Serveur CalDAV et CardDAV"
+    },
+    "developer": {
+        "name": "beudbeud",
+        "email": "beudbeud@beudibox.fr",
+        "url": "http://radicale.org"
+    },
+    "multi_instance": "false",
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "ask": {
+                    "en": "Choose a domain for Roundcube"
+                },
+                "example": "domain.org"
+            },
+            {
+                "name": "path",
+                "ask": {
+                    "en": "Choose a path for Radicale"
+                },
+                "example": "/sync",
+                "default": "/sync"
+            }
+        ]
+    }
+}
