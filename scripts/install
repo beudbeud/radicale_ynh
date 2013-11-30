@@ -5,7 +5,7 @@ domain=$1
 path=$2
 
 # Check domain/path availability
-yunohost app checkurl $domain$path -a radicale
+sudo yunohost app checkurl $domain$path -a radicale
 sudo yunohost app setting radicale skipped_uris -v "$path"
 if [[ ! $? -eq 0 ]]; then
     exit 1
@@ -55,5 +55,5 @@ sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/radicale.conf
 ## Reload Nginx and regenerate SSOwat conf
 sudo service nginx reload
 sudo service uwsgi restart
-yunohost app setting radicale skipped_uris -v "$path"
-yunohost app ssowatconf
+sudo yunohost app setting radicale skipped_uris -v "$path"
+sudo yunohost app ssowatconf
