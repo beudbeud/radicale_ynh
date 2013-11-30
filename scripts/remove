@@ -1,0 +1,12 @@
+#!/bin/bash
+
+domain=$(sudo yunohost app setting radicale domain)
+
+sudo rm -Rf /usr/local/radicale
+sudo rm -Rf /var/www/radicale/
+sudo rm -f /etc/uwsgi/apps-enabled/radicle.ini
+sudo rm -f /etc/uwsgi/apps-available/radicale.ini
+sudo rm -f /etc/nginx/conf.d/$domain.d/radicale.conf
+service uwsgi reload
+service nginx reload
+yunohost app ssowatconf
