@@ -16,7 +16,7 @@
             {
                 "name": "domain",
                 "ask": {
-                    "en": "Choose a domain for Roundcube"
+                    "en": "Choose a domain for Radicale"
                 },
                 "example": "domain.org"
             },

@@ -2,7 +2,7 @@
 
 [loggers]
 # Loggers names, main configuration slots
-keys = root
+keys = www-data
 
 [handlers]
 # Logging handlers, defining logging output methods

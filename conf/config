@@ -54,7 +54,7 @@ ldap_attribute = uid
 # placed as X in a query of the form (&(...)X)
 # example: (objectCategory=Person)(objectClass=User)(memberOf=cn=calenderusers,ou=users,dc=example,dc=org)
 # leave empty if no additional filter is needed
-ldap_filter = objectClass=inetOrgPerson 
+ldap_filter = 
 # LDAP dn for initial login, used if LDAP server does not allow anonymous searches
 # Leave empty if searches are anonymous
 ldap_binddn =
@@ -94,16 +94,16 @@ file = ~/.config/radicale/rights
 [storage]
 # Storage backend
 # Value: filesystem | database
-type = database
+type = filesystem
 
 # Folder for storing local collections, created if not present
-filesystem_folder = ~/.config/radicale/collections
+filesystem_folder = /var/www/radicale/collections
 
 # Database URL for SQLAlchemy
 # dialect+driver://user:password@host/dbname[?key=value..]
 # For example: sqlite:///var/db/radicale.db, postgresql://user:password@localhost/radicale
 # See http://docs.sqlalchemy.org/en/rel_0_8/core/engines.html#sqlalchemy.create_engine
-database_url = sqlite:///var/lib/radicale/radicale.db
+database_url = mysql://root:CL49RGRdwh@localhost/radicale
 
 
 [logging]
