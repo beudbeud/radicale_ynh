@@ -24,7 +24,6 @@ done
 # Init virtualenv
 sudo virtualenv /usr/local/radicale
 sudo bash -c "source /usr/local/radicale/bin/activate && pip install radicale python-ldap"
-deactivate
 
 #Configuration Radicale
 if [ ! -d /etc/radicale ];
