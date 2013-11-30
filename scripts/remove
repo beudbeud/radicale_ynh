@@ -7,6 +7,6 @@ sudo rm -Rf /var/www/radicale/
 sudo rm -f /etc/uwsgi/apps-enabled/radicle.ini
 sudo rm -f /etc/uwsgi/apps-available/radicale.ini
 sudo rm -f /etc/nginx/conf.d/$domain.d/radicale.conf
-service uwsgi reload
-service nginx reload
-yunohost app ssowatconf
+sudo service uwsgi reload
+sudo service nginx reload
+sudo yunohost app ssowatconf
