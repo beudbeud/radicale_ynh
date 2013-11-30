@@ -42,19 +42,19 @@ sudo cp ../conf/radicale.wsgi $final_path
 # Set permissions to radicale directory
 sudo chown -R www-data. $final_path
 sudo touch /var/log/radicale
-sudo chgrp /var/log/radicale
+sudo chgrp www-data /var/log/radicale
 sudo chmod g+w /var/log/radicale
 
 # Copy uwsgi config
-cp ../conf/radicale.ini /etc/uwsgi/apps-available/
-ln -s /etc/uwsgi/apps-available/radicale.ini /etc/uwsgi/apps-enabled/
+sudo cp ../conf/radicale.ini /etc/uwsgi/apps-available/
+sudo ln -s /etc/uwsgi/apps-available/radicale.ini /etc/uwsgi/apps-enabled/
 
 ## Modify Nginx configuration file and copy it to Nginx conf directory
-sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
-cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/radicale.conf
+sudo sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
+sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/radicale.conf
 
 ## Reload Nginx and regenerate SSOwat conf
-service nginx reload
-service uwsgi reload
+sudo service nginx reload
+sudo service uwsgi reload
 yunohost app setting radicale skipped_uris -v "$path"
 yunohost app ssowatconf
