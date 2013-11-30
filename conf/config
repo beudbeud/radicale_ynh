@@ -103,7 +103,7 @@ filesystem_folder = /var/www/radicale/collections
 # dialect+driver://user:password@host/dbname[?key=value..]
 # For example: sqlite:///var/db/radicale.db, postgresql://user:password@localhost/radicale
 # See http://docs.sqlalchemy.org/en/rel_0_8/core/engines.html#sqlalchemy.create_engine
-database_url = mysql://root:CL49RGRdwh@localhost/radicale
+database_url =
 
 
 [logging]
