@@ -2,8 +2,8 @@
     "name": "Radicale",
     "id": "radicale",
     "description": {
-        "en": "CalDAV (calendar) and CardDAV (contact) server solution",
-        "fr": "Serveur CalDAV et CardDAV"
+        "en": "CalDAV (calendar) and CardDAV (contact) synchronization server",
+        "fr": "Serveur de synchronisation CalDAV et CardDAV"
     },
     "developer": {
         "name": "beudbeud",
@@ -25,7 +25,8 @@
                 "ask": {
                     "en": "Choose a path for Radicale"
                 },
-                "example": "/sync"
+                "example": "/sync",
+                "default": "/sync"
             }
         ]
     }
