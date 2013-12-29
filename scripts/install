@@ -22,7 +22,7 @@ do
 done
 
 # Init virtualenv
-sudo virtualenv /usr/local/radicale
+sudo virtualenv /usr/local/radicale --system-site-packages
 sudo bash -c "source /usr/local/radicale/bin/activate && pip install radicale python-ldap"
 
 #Configuration Radicale
