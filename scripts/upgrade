@@ -1,3 +1,6 @@
 #!/bin/bash
 
-#TODO
+sudo service uwsgi stop
+sudo killall uwsgi 
+sudo service uwsgi start
+sudo service nginx reload
