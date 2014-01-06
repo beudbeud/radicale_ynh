@@ -12,14 +12,7 @@ if [[ ! $? -eq 0 ]]; then
 fi
 
 # Check depends installation
-for i in python-pip python-virtualenv python-dev libldap2-dev libsasl2-dev libssl-dev uwsgi uwsgi-plugin-python
-do
-	dpkg -l | grep $i > /dev/null 2>&1
-	if [ $? = 1 ];
-		then
-		sudo apt-get install $i -y
-	fi
-done
+sudo apt-get install -y python-pip python-virtualenv python-dev libldap2-dev libsasl2-dev libssl-dev uwsgi uwsgi-plugin-python
 
 # Init virtualenv
 sudo virtualenv /usr/local/radicale
