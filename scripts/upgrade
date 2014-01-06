@@ -1,6 +1,12 @@
 #!/bin/bash
 
-#sudo service uwsgi stop
-#sudo killall uwsgi 
-#sudo service uwsgi start
-#sudo service nginx reload
+# Fix permission
+sudo chmod 755 /etc/radicale/
+sudo find /usr/local/radicale/ -type d -exec chmod 2755 {} \;
+sudo find /usr/local/radicale/ -type f -exec chmod g+r,o+r {} \;
+sudo chmod 644 /etc/radicale/*
+
+sudo service uwsgi stop
+sudo killall uwsgi 
+sudo service uwsgi start
+sudo service nginx reload
