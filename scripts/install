@@ -48,9 +48,15 @@ sudo chmod g+w /var/log/radicale
 sudo cp ../conf/radicale.ini /etc/uwsgi/apps-available/
 sudo ln -s /etc/uwsgi/apps-available/radicale.ini /etc/uwsgi/apps-enabled/
 
-## Modify Nginx configuration file and copy it to Nginx conf directory
+# Modify Nginx configuration file and copy it to Nginx conf directory
 sudo sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/radicale.conf
+
+# Fix permission
+sudo chmod 755 /etc/radicale/
+sudo find /usr/local/radicale/ -type d -exec chmod 2755 {} \;
+sudo find /usr/local/radicale/ -type f -exec chmod g+r,o+r {} \;
+sudo chmod 644 /etc/radicale/*
 
 ## Reload Nginx and regenerate SSOwat conf
 sudo service nginx reload
