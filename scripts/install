@@ -28,11 +28,13 @@ sudo cp ../conf/logging /etc/radicale/
 
 # Copy files to the right place
 final_path=/var/www/radicale
-sudo mkdir -p $final_path/collections
+sudo mkdir -p $final_path
 sudo cp ../conf/radicale.wsgi $final_path
+sudo mkdir -p /home/yunohost.app/radicale/collections
 
 # Set permissions to radicale directory
 sudo chown -R www-data. $final_path
+sudo chown -R www-data. /home/yunohost.app/radicale/collections
 sudo touch /var/log/radicale
 sudo chgrp www-data /var/log/radicale
 sudo chmod g+w /var/log/radicale
