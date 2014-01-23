@@ -97,7 +97,7 @@ file = ~/.config/radicale/rights
 type = filesystem
 
 # Folder for storing local collections, created if not present
-filesystem_folder = /home/yunohost.app/radicale/collections
+filesystem_folder = /var/www/radicale/collections
 
 # Database URL for SQLAlchemy
 # dialect+driver://user:password@host/dbname[?key=value..]
