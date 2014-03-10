@@ -2,7 +2,7 @@
 
 domain=$(sudo yunohost app setting radicale domain)
 
-sudo rm -Rf /usr/local/radicale
+sudo rm -Rf /opt/yunohost/radicale
 sudo rm -Rf /var/www/radicale/
 sudo rm -Rf /etc/radicale/
 sudo rm -f /etc/uwsgi/apps-enabled/radicale.ini
