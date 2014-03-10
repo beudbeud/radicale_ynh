@@ -15,8 +15,8 @@ fi
 sudo apt-get install -y python-pip python-virtualenv python-dev libldap2-dev libsasl2-dev libssl-dev uwsgi uwsgi-plugin-python
 
 # Init virtualenv
-sudo virtualenv /usr/local/radicale
-sudo bash -c "source /usr/local/radicale/bin/activate && pip install radicale python-ldap"
+sudo virtualenv /opt/yunohost/radicale
+sudo bash -c "source /opt/yunohost/radicale/bin/activate && pip install radicale python-ldap"
 
 #Configuration Radicale
 if [ ! -d /etc/radicale ];
@@ -48,8 +48,8 @@ sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/radicale.conf
 
 # Fix permission
 sudo chmod 755 /etc/radicale/
-sudo find /usr/local/radicale/ -type d -exec chmod 2755 {} \;
-sudo find /usr/local/radicale/ -type f -exec chmod g+r,o+r {} \;
+sudo find /opt/yunohost/radicale/ -type d -exec chmod 2755 {} \;
+sudo find /opt/yunohost/radicale/ -type f -exec chmod g+r,o+r {} \;
 sudo chmod 644 /etc/radicale/*
 
 ## Reload Nginx and regenerate SSOwat conf
