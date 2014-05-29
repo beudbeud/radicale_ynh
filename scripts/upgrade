@@ -33,6 +33,9 @@ sudo cp ../conf/radicale.wsgi $final_path
 # Copy uwsgi config
 sudo cp ../conf/radicale.ini /etc/uwsgi/apps-available/
 
+# Update nginx config
+sudo find /etc/nginx/conf.d/ -name radicale.conf -exec sed -i 's@tmp\/radicale.sock@run\/uwsgi\/app\/searx\/socket@' {} \;
+
 # Fix permission
 sudo chmod 755 /etc/radicale/
 sudo find /opt/yunohost/radicale/ -type d -exec chmod 2755 {} \;
