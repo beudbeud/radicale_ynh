@@ -10,7 +10,11 @@ then
 fi
 
 # Set permissions to searx directory
-sudo useradd radicale -d /opt/yunohost/radicale
+sudo grep radicaled /etc/passwd  > /dev/null 2>&1
+if [ $? != 0 ];
+then
+  sudo useradd radicale -d /opt/yunohost/radicale
+fi
 sudo chown radicale:radicale -R /opt/yunohost/radicale
 
 # Upgrade pip packages
