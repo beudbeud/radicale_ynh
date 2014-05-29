@@ -5,8 +5,8 @@ sudo apt-get install -y python-pip python-virtualenv python-dev libldap2-dev lib
 
 if [ -d /usr/local/radicale ];
 then
-  mdkir -p /opt/yunohost
-  mv /usr/local/radicale /opt/yunohost/
+  sudo mdkir -p /opt/yunohost
+  sudo mv /usr/local/radicale /opt/yunohost/
 fi
 
 # Set permissions to searx directory
@@ -31,7 +31,7 @@ sudo chmod 755 /etc/radicale/
 sudo find /opt/yunohost/radicale/ -type d -exec chmod 2755 {} \;
 sudo find /opt/yunohost/radicale/ -type f -exec chmod g+r,o+r {} \;
 sudo chmod 644 /etc/radicale/*
-chown -R radicale $final_path
+sudo chown -R radicale $final_path
 sudo touch /var/log/radicale
 sudo chgrp radicale /var/log/radicale
 sudo chmod g+w /var/log/radicale
