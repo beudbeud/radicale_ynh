@@ -1,11 +1,29 @@
 #!/bin/bash
 
+# Check depends installation
+sudo apt-get install -y python-pip python-virtualenv python-dev libldap2-dev libsasl2-dev libssl-dev uwsgi uwsgi-plugin-python
+
+# Upgrade pip packages
+sudo bash -c "source /opt/yunohost/radicale/bin/activate && pip install radicale python-ldap --upgrade"
+
+# Radicale configuration
+sudo cp ../conf/config /etc/radicale/
+sudo cp ../conf/logging /etc/radicale/
+sudo sed -i "s@CHANGEPATH@$path@g" /etc/radicale/config
+
+# Copy files to the right place
+final_path=/var/www/radicale
+sudo mkdir -p $final_path/collections
+sudo cp ../conf/radicale.wsgi $final_path
+
 # Fix permission
 sudo chmod 755 /etc/radicale/
 sudo find /usr/local/radicale/ -type d -exec chmod 2755 {} \;
 sudo find /usr/local/radicale/ -type f -exec chmod g+r,o+r {} \;
 sudo chmod 644 /etc/radicale/*
 
+sudo yunohost app setting radicale skipped_uris -v "/"
+sudo yunohost app ssowatconf
 sudo service uwsgi stop
 sudo killall uwsgi 
 sudo service uwsgi start
