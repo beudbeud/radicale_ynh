@@ -9,6 +9,10 @@ then
   mv /usr/local/radicale /opt/yunohost/
 fi
 
+# Set permissions to searx directory
+sudo useradd radicale -d /opt/yunohost/radicale
+sudo chown radicale:radicale -R /opt/yunohost/radicale
+
 # Upgrade pip packages
 sudo bash -c "source /opt/yunohost/radicale/bin/activate && pip install radicale python-ldap --upgrade"
 
@@ -24,8 +28,8 @@ sudo cp ../conf/radicale.wsgi $final_path
 
 # Fix permission
 sudo chmod 755 /etc/radicale/
-sudo find /usr/local/radicale/ -type d -exec chmod 2755 {} \;
-sudo find /usr/local/radicale/ -type f -exec chmod g+r,o+r {} \;
+sudo find /opt/yunohost/radicale/ -type d -exec chmod 2755 {} \;
+sudo find /opt/yunohost/radicale/ -type f -exec chmod g+r,o+r {} \;
 sudo chmod 644 /etc/radicale/*
 
 sudo yunohost app setting radicale skipped_uris -v "/"
