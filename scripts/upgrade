@@ -26,6 +26,9 @@ final_path=/var/www/radicale
 sudo mkdir -p $final_path/collections
 sudo cp ../conf/radicale.wsgi $final_path
 
+# Copy uwsgi config
+sudo cp ../conf/radicale.ini /etc/uwsgi/apps-available/
+
 # Fix permission
 sudo chmod 755 /etc/radicale/
 sudo find /opt/yunohost/radicale/ -type d -exec chmod 2755 {} \;
