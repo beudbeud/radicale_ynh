@@ -5,7 +5,7 @@ sudo apt-get install -y python-pip python-virtualenv python-dev libldap2-dev lib
 
 if [ -d /usr/local/radicale ];
 then
-  sudo mdkir -p /opt/yunohost
+  sudo mkdir -p /opt/yunohost
   sudo mv /usr/local/radicale /opt/yunohost/
 fi
 
