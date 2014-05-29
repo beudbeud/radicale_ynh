@@ -31,10 +31,14 @@ final_path=/var/www/radicale
 sudo mkdir -p $final_path/collections
 sudo cp ../conf/radicale.wsgi $final_path
 
+# Set permissions to searx directory
+sudo useradd radicale -d /opt/yunohost/radicale
+sudo chown radicale:radicale -R /opt/yunohost/radicale
+
 # Set permissions to radicale directory
-sudo chown -R www-data. $final_path
+sudo chown -R radicale. $final_path
 sudo touch /var/log/radicale
-sudo chgrp www-data /var/log/radicale
+sudo chgrp radicale /var/log/radicale
 sudo chmod g+w /var/log/radicale
 
 # Copy uwsgi config
