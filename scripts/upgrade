@@ -3,6 +3,12 @@
 # Check depends installation
 sudo apt-get install -y python-pip python-virtualenv python-dev libldap2-dev libsasl2-dev libssl-dev uwsgi uwsgi-plugin-python
 
+if [ -d /usr/local/radicale ];
+then
+  mdkir -p /opt/yunohost
+  mv /usr/local/radicale /opt/yunohost/
+fi
+
 # Upgrade pip packages
 sudo bash -c "source /opt/yunohost/radicale/bin/activate && pip install radicale python-ldap --upgrade"
 
