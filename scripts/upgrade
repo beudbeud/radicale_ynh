@@ -31,6 +31,10 @@ sudo chmod 755 /etc/radicale/
 sudo find /opt/yunohost/radicale/ -type d -exec chmod 2755 {} \;
 sudo find /opt/yunohost/radicale/ -type f -exec chmod g+r,o+r {} \;
 sudo chmod 644 /etc/radicale/*
+chown -R radicale $final_path
+sudo touch /var/log/radicale
+sudo chgrp radicale /var/log/radicale
+sudo chmod g+w /var/log/radicale
 
 sudo yunohost app setting radicale skipped_uris -v "/"
 sudo yunohost app ssowatconf
