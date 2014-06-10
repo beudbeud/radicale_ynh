@@ -16,14 +16,16 @@
             {
                 "name": "domain",
                 "ask": {
-                    "en": "Choose a domain for Radicale"
+                    "en": "Choose a domain for Radicale",
+                    "fr": "Choisissez un domaine pour Radicale"
                 },
                 "example": "domain.org"
             },
             {
                 "name": "path",
                 "ask": {
-                    "en": "Choose a path for Radicale"
+                    "en": "Choose a path for Radicale",
+                    "fr": "Choisissez un chemin pour Radicale"
                 },
                 "example": "/sync",
                 "default": "/sync"
