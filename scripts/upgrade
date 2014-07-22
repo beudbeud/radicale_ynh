@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Get app settings
+domain=$(sudo yunohost app setting radicale domain)
+path=$(sudo yunohost app setting radicale path)
+
 # Check depends installation
 sudo apt-get install -y python-pip python-virtualenv python-dev libldap2-dev libsasl2-dev libssl-dev uwsgi uwsgi-plugin-python
 
@@ -9,7 +13,7 @@ then
   sudo mv /usr/local/radicale /opt/yunohost/
 fi
 
-# Set permissions to searx directory
+# Set permissions to radicale directory
 sudo grep radicaled /etc/passwd  > /dev/null 2>&1
 if [ $? != 0 ];
 then
