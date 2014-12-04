@@ -58,6 +58,6 @@ sudo chmod 644 /etc/radicale/*
 ## Reload Nginx and regenerate SSOwat conf
 sudo service nginx reload
 sudo service uwsgi restart
-sudo yunohost service add uwsgi
+sudo yunohost service add uwsgi -l /var/log/uwsgi/app/radicale.log
 sudo yunohost app setting radicale skipped_uris -v "/"
 sudo yunohost app ssowatconf
