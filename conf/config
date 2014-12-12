@@ -17,7 +17,7 @@ key = /etc/apache2/ssl/server.key
 # Reverse DNS to resolve client address in logs
 dns_lookup = True
 # Root URL of Radicale (starting and ending with a slash)
-base_prefix = /sync/
+base_prefix = CHANGEPATH
 # Message displayed in the client when a password is needed
 realm = Radicale - Password Required
 
