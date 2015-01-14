@@ -85,10 +85,10 @@ http_password_parameter =
 [rights]
 # Rights management method
 # Value: None | owner_only | owner_write | from_file
-type = authenticated
+type = from_file
 
 # File for rights management from_file
-file = ~/.config/radicale/rights
+file = /etc/radicale/rights
 
 
 [storage]
