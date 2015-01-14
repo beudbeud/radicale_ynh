@@ -27,6 +27,7 @@ sudo bash -c "source /opt/yunohost/radicale/bin/activate && pip install radicale
 # Radicale configuration
 sudo cp ../conf/config /etc/radicale/
 sudo cp ../conf/logging /etc/radicale/
+sudo cp ../conf/rights /etc/radicale/
 sudo sed -i "s@CHANGEPATH@$path@g" /etc/radicale/config
 
 # Copy files to the right place
