@@ -24,6 +24,7 @@ then
 fi
 sudo cp ../conf/config /etc/radicale/
 sudo cp ../conf/logging /etc/radicale/
+sudo cp ../conf/rights /etc/radicale/
 sudo sed -i "s@CHANGEPATH@$path@g" /etc/radicale/config
 
 # Copy files to the right place
