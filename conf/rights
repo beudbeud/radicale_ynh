@@ -1,0 +1,11 @@
+# Allow authenticated user to read all collections
+[allow-everyone-read]
+user: .+
+collection: .*
+permission: r
+
+# Give write access to owners
+[owner-write]
+user: .+
+collection: ^%(login)s/.+$
+permission: w
