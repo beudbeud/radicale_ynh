@@ -103,13 +103,13 @@ ldap_filter =
 
 # LDAP dn for initial login, used if LDAP server does not allow anonymous searches
 # Leave empty if searches are anonymous
-ldap_binddn =
+#ldap_binddn =
 
 # LDAP password for initial login, used with ldap_binddn
-ldap_password =
+#ldap_password =
 
 # LDAP scope of the search
-#ldap_scope = OneLevel
+ldap_scope = OneLevel
 
 # IMAP Configuration
 #imap_hostname = localhost
