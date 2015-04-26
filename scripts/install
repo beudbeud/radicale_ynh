@@ -32,7 +32,7 @@ final_path=/var/www/radicale
 sudo mkdir -p $final_path/collections
 sudo cp ../conf/radicale.wsgi $final_path
 
-# Set permissions to searx directory
+# Set permissions to radicale directory
 sudo useradd radicale -d /opt/yunohost/radicale
 sudo chown radicale:radicale -R /opt/yunohost/radicale
 
