@@ -15,7 +15,7 @@ sudo apt-get install -y python-pip python-virtualenv python-dev libldap2-dev lib
 
 # Init virtualenv
 sudo virtualenv /opt/yunohost/radicale
-sudo /opt/yunohost/radicale/bin/pip install radicale==0.10 python-ldap
+sudo /opt/yunohost/radicale/bin/pip install radicale==1.0 python-ldap
 
 #Configuration Radicale
 if [ ! -d /etc/radicale ];
