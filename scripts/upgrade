@@ -22,7 +22,9 @@ fi
 sudo chown radicale:radicale -R /opt/yunohost/radicale
 
 # Upgrade pip packages
-sudo bash -c "source /opt/yunohost/radicale/bin/activate && pip install radicale python-ldap --upgrade"
+sudo rm -Rf /opt/yunohost/radicale
+sudo virtualenv /opt/yunohost/radicale
+sudo /opt/yunohost/radicale/bin/pip install radicale==1.0 python-ldap
 
 # Radicale configuration
 sudo cp ../conf/config /etc/radicale/
