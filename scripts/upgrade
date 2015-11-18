@@ -35,6 +35,7 @@ sudo sed -i "s@CHANGEPATH@$path@g" /etc/radicale/config
 # Copy files to the right place
 final_path=/var/www/radicale
 sudo mkdir -p $final_path/collections
+sudo chown radicale:www-data -R $final_path
 sudo cp ../conf/radicale.wsgi $final_path
 
 # Copy uwsgi config
