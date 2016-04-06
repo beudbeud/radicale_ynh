@@ -34,3 +34,52 @@ Cela peux être fait simplement avec un navigateur, pour le voir apparaitre dans
 
 Qu'est-ce que je voulais ajouter?
 Les règles de partage et de droits!
+
+# This means all users starting with "admin" may read any collection
+[admin]
+user: ^admin.*$
+collection: .*
+permission: r
+
+# This means all users may read and write any collection starting with public.
+# We do so by just not testing against the user string.
+[public]
+user: .*
+collection: ^public(/.+)?$
+permission: rw
+
+# A little more complex: give read access to users from a domain for all
+# collections of all the users (ie. user@domain.tld can read domain/\*).
+# [domain-wide-access]
+# user: ^.+@(.+)\..+$
+# collection: ^{0}/.+$
+# permission: r
+
+# Allow authenticated user to read all collections
+[allow-everyone-read]
+user: .+
+collection: .*
+permission: r
+
+# Give write access to owners
+[owner-write]
+user: .+
+collection: ^%(login)s/.+$
+permission: w
+
+# Partage public en lecture seule d'un agenda
+#[public for readonly]
+#user: .*
+#collection: ^utilisateur/nom_calendrier*
+#permission: r
+
+# Partage public en lecture/écriture d'un agenda
+#[public for read/write]
+#user: .*
+#collection: ^utilisateur/nom_calendrier*
+#permission: rw
+
+#[user1 can read and write user2/shared2]
+#user: ^user1$
+#collection: ^user2/shared2$
+#permission: rw

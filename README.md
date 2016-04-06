@@ -19,5 +19,5 @@ En l'état, radicale ne fonctionne pas avec [Agendav](https://github.com/julienm
 
 Le script installe les paquets *libjansson4* *libldap2-dev* *libmatheval1* *libpgm-5.1-0* *libpython-dev* *libsasl2-dev* *libsodium13* *libzmq3* *python-chardet-whl* *python-colorama-whl* *python-dev* *python-distlib-whl* *python-html5lib-whl* *python-pip-whl* *python-requests-whl* *python-setuptools-whl* *python-six-whl* *python-urllib3-whl* *python-virtualenv* *python3-virtualenv* *uwsgi* *uwsgi-core* *uwsgi-plugin-python* *virtualenv*.
 
-Mise à jour du package:
+Mise à jour du package:  
 sudo yunohost app upgrade -u https://github.com/maniackcrudelis/radicale_ynh radicale

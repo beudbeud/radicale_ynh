@@ -146,7 +146,7 @@ sudo chgrp radicale -R /var/log/$app
 sudo chmod g+w -R /var/log/$app
 # Droit par défaut des dossiers de collections utilisateurs, tels qu'ils sont créés par radicale.
 sudo chmod 666 -R $final_path/default_collections
-sudo chmod 777 $final_path/default_collections/USER
+sudo chmod 777 $final_path/default_collections $final_path/default_collections/USER
 
 # Copy uwsgi config
 sudo cp ../conf/radicale.ini /etc/uwsgi/apps-available/
