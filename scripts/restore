@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Récupère les infos de l'application.
+app=radicale
+final_path=$(sudo yunohost app setting $app final_path)
+domain=$(sudo yunohost app setting $app domain)
+infcloud=$(sudo yunohost app setting $app infcloud)
+
+# The parameter $1 is the uncompressed restore directory location
+backup_dir=$1/apps/$app
+
+# Restore sources & data
+sudo cp -a $backup_dir/sources/. $final_path
+
+# Restore Nginx and YunoHost parameters
+sudo cp -a $backup_dir/yunohost/. /etc/yunohost/apps/$app
+sudo cp -a $backup_dir/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
+
+# Restore radicale configuration
+sudo cp -a $backup_dir/etc/. /etc/$app
+
+# Copy dedicated php-fpm process to backup folder
+if [ "$infcloud" = "1" ]
+then
+	sudo cp -a /etc/php5/fpm/pool.d/$app.conf $backup_dir/php-fpm.conf
+	sudo cp -a /etc/php5/fpm/conf.d/20-$app.ini $backup_dir/php-fpm.ini
+	sudo service php5-fpm reload
+fi
+
+# Restaure la configuration de logrotate
+sudo cp -a $backup_dir/logrotate /etc/logrotate.d/$app
+
+# Restart webserver
+sudo service nginx reload
+
+# Restart uwsgi
+sudo service uwsgi restart

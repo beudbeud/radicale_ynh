@@ -1,0 +1,50 @@
+#!/bin/bash
+
+app=radicale
+
+# Récupère les infos de l'application.
+domain=$(sudo yunohost app setting $app domain)
+infcloud=$(sudo yunohost app setting $app infcloud)
+
+# Suppression des dossiers de l'application
+sudo rm -Rf /opt/yunohost/$app
+sudo rm -Rf /var/www/$app/
+sudo rm -Rf /etc/$app/
+
+# Stoppe le service uwsgi
+sudo service uwsgi stop
+# Suppression de la configuration uwsgi
+sudo rm -f /etc/uwsgi/apps-enabled/radicale.ini
+sudo rm -f /etc/uwsgi/apps-available/radicale.ini
+# Et du service dans Yunohost
+sudo yunohost service remove uwsgi
+# Redémarre le service uwsgi
+sudo service uwsgi start
+
+# Suppression de la configuration nginx
+sudo rm -f /etc/nginx/conf.d/$domain.d/$app.conf
+
+if [ "$infcloud" = "1" ]
+then
+	# Suppression de la configuration du pool php-fpm
+	sudo rm -f /etc/php5/fpm/pool.d/$app.conf
+	sudo rm -f /etc/php5/fpm/conf.d/20-$app.ini
+
+	# Recharge la configuration de php5-fpm
+	sudo service php5-fpm reload
+fi
+
+# Suppression de la configuration de logrotate
+sudo rm /etc/logrotate.d/$app
+
+# Recharge la configuration Nginx
+sudo service nginx reload
+
+# Régénère la configuration de SSOwat
+sudo yunohost app ssowatconf
+
+# Supprime l'utilisateur radicale
+sudo userdel radicale
+
+# Retire le hook sur la création de nouveaux utilisateurs
+sudo yunohost hook remove radicale
