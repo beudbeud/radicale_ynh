@@ -135,8 +135,7 @@ sudo chmod 644 /etc/$app/*
 sudo chown -R radicale: $final_path
 sudo mkdir -p /var/log/$app
 sudo touch /var/log/$app/$app.log
-sudo chgrp radicale -R /var/log/$app
-sudo chmod g+w -R /var/log/$app
+sudo chown radicale -R /var/log/$app
 # Droit par défaut des dossiers de collections utilisateurs, tels qu'ils sont créés par radicale.
 sudo chmod 666 -R $final_path/default_collections
 sudo chmod 777 $final_path/default_collections $final_path/default_collections/USER
