@@ -152,6 +152,8 @@ sudo yunohost app ssowatconf
 sudo service uwsgi restart
 sudo service nginx reload
 
-# Mise en place du hook pour la création des collections par défaut des nouveaux utilisateurs.
+# Mise en place des hook pour la création des collections par défaut des nouveaux utilisateurs. Et leur suppression
 sudo sed -i "s@__FINALPATH__@$final_path@g" ../hooks/post_user_create
 sudo yunohost hook add radicale ../hooks/post_user_create
+sudo sed -i "s@__FINALPATH__@$final_path@g" ../hooks/post_user_delete
+sudo yunohost hook add radicale ../hooks/post_user_delete

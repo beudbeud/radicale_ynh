@@ -35,7 +35,7 @@ Les adresses précédentes fonctionnent également pour accéder à des ressourc
 > https://example.org/radicale/user2/  
 > Il lui suffira d'indiquer le login et mot de passe de user1.  
 > Ce sont les règles de partage (voir ci-dessous) qui permettront ou pas à user1 de voir le contenu de la collection de user2.  
-> Par défaut, aucun partage n'est autorisé. (A VÉRIFIER !!!)
+> Par défaut, aucun partage n'est autorisé.
 
 ---
 
@@ -62,7 +62,7 @@ sudo service uwsgi restart
 Pour partager un calendrier ou un carnet d'adresses, il suffit d'écrire une règle le permettant. Le partage peut se faire avec un autre utilisateur.
 ```
 user: ^user1$
-collection: ^user2/shared2$
+collection: ^user2/shared2.ics$
 permission: rw
 ```
 Ou publiquement pour un utilisateur distant n'utilisant pas le même serveur.
