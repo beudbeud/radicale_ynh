@@ -9,8 +9,8 @@ http://radicale.org/
 
 ==================
 
-Radicale ne dispose d'aucune interface, sa configuration doit être faite à l'aide des fichiers de configurations dans '/etc/radicale/'
-Il est moins friendly-user que [baikal](https://github.com/julienmalik/baikal_ynh), mais il permet de partager des calendriers en lecture seule et en écriture avec d'autres utilisateurs, qu'ils soient sur le même serveur ou pas.
+Radicale ne dispose d'aucune interface, sa configuration doit être faite à l'aide des fichiers de configurations dans '/etc/radicale/'  
+Il est moins friendly-user que [baikal](https://github.com/julienmalik/baikal_ynh), mais il permet de partager des calendriers en lecture seule et en écriture avec d'autres utilisateurs, qu'ils soient sur le même serveur ou pas.  
 La configuration des partages se fait à l'aide du fichier de configuration des droits '/etc/radicale/rights'.
 
 ==================
