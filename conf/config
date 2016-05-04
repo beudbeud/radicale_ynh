@@ -43,7 +43,7 @@
 dns_lookup = True
 
 # Root URL of Radicale (starting and ending with a slash)
-base_prefix = CHANGEPATH
+base_prefix = __PATH__/
 
 # Possibility to allow URLs cleaned by a HTTP server, without the base_prefix
 #can_skip_base_prefix = False
@@ -163,7 +163,7 @@ type = filesystem
 #custom_handler =
 
 # Folder for storing local collections, created if not present
-filesystem_folder = /var/www/radicale/collections
+filesystem_folder = __FINALPATH__/collections
 
 # Database URL for SQLAlchemy
 # dialect+driver://user:password@host/dbname[?key=value..]
@@ -188,4 +188,7 @@ full_environment = False
 [headers]
 
 # Additional HTTP headers
-#Access-Control-Allow-Origin = *
+Access-Control-Allow-Origin = *
+Access-Control-Allow-Methods = GET, POST, OPTIONS, PROPFIND, PROPPATCH, REPORT, PUT, MOVE, DELETE, LOCK, UNLOCK
+Access-Control-Allow-Headers = User-Agent, Authorization, Content-type, Depth, If-match, If-None-Match, Lock-Token, Timeout, Destination, Overwrite, X-clie$
+Access-Control-Expose-Headers = Etag

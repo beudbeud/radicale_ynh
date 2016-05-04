@@ -5,10 +5,12 @@
         "en": "CalDAV (calendar) and CardDAV (contact) synchronization server",
         "fr": "Serveur de synchronisation CalDAV et CardDAV"
     },
-    "developer": {
+	"version": "1.1.1",
+    "url": "http://radicale.org",
+    "licence": "free",
+    "maintainer": {
         "name": "beudbeud",
-        "email": "beudbeud@beudibox.fr",
-        "url": "http://radicale.org"
+        "email": "beudbeud@beudibox.fr"
     },
     "multi_instance": "false",
     "arguments": {
@@ -27,9 +29,35 @@
                     "en": "Choose a path for Radicale",
                     "fr": "Choisissez un chemin pour Radicale"
                 },
-                "example": "/sync",
-                "default": "/sync"
-            }
+                "example": "/radicale",
+                "default": "/radicale"
+            },
+			{
+				"name": "admin",
+				"ask": {
+					"en": "Choose the administrator (must be an existing YunoHost user)",
+					"fr": "Choisissez un administrateur (doit être un utilisateur YunoHost)"
+				},
+				"example": "john"
+			},
+			{
+				"name": "infcloud",
+				"ask": {
+					"en": "Install InfCloud web interface?",
+					"fr": "Installer l'interface web InfCloud?"
+				},
+				"choices": ["Yes", "No"],
+				"default": "Yes"
+			},
+			{
+				"name": "language",
+				"ask": {
+					"en": "Choose your interface language",
+					"fr": "Choisissez la langue de l'interface"
+				},
+				"choices" : ["Czech", "Danish", "German", "English/US", "Spanish", "French", "Italian", "Japan", "Hungarian", "Dutch", "Slovak", "Turkish", "Russian", "Ukrainian", "Chinese"],
+				"default" : "English/US"
+			}
         ]
     }
 }
